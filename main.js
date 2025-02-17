@@ -29,6 +29,8 @@ const fetchGitHubIssues = async () => {
         issues = [...issues, ...labelIssues];
       } else {
         console.log(response);
+        // エラーをthrow
+        throw new Error("GitHub API request failed");
       }
     } catch (error) {
       console.error("Error fetching GitHub issues:", error);

@@ -25,5 +25,5 @@ jobs:
       - name: Run script
         env:
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.PVT_GITHUB_TOKEN }}
+          PVT_GITHUB_TOKEN: ${{ secrets.PVT_GITHUB_TOKEN }}
         run: node main.js
