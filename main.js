@@ -1,6 +1,6 @@
 const { WebClient } = require("@slack/web-api");
-const slack = new WebClient(process.env.SLACK_TOKEN);
-const githubtoken = process.env.GITHUB_TOKEN;
+const slack = new WebClient(secrets.SLACK_TOKEN);
+const githubtoken = secrets.GITHUB_TOKEN;
 
 const fetchGitHubIssues = async () => {
   // ラベルの配列
