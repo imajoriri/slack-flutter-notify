@@ -24,8 +24,11 @@ const fetchGitHubIssues = async () => {
         },
       });
       if (response.ok) {
+        console.log(singleLabelUrl);
         const labelIssues = await response.json();
         issues = [...issues, ...labelIssues];
+      } else {
+        console.log(response);
       }
     } catch (error) {
       console.error("Error fetching GitHub issues:", error);
