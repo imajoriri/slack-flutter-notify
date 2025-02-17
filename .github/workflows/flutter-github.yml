@@ -1,0 +1,29 @@
+name: Run GitHub Issues Notifier
+
+on:
+  schedule:
+    - cron: "0 * * * *" # 毎時実行
+  workflow_dispatch: # 手動実行用
+
+jobs:
+  notify-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run script
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node main.js
